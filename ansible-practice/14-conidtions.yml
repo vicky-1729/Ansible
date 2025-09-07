@@ -1,0 +1,19 @@
+- name: conditions
+  hosts: local
+  connection: local
+ 
+  vars_prompt:
+    - name: number
+      prompt: "please enter the number"
+      private: false
+
+  tasks:
+    - name: Show if the number is positive
+      debug:
+        msg: "The number {{ number }} is positive."
+      when: number | int > 0
+
+    - name: Show if the number is negative
+      debug:
+        msg: "The number {{ number }} is negative."
+      when: number | int < 0

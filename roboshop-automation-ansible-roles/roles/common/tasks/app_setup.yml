@@ -1,0 +1,25 @@
+      - name: create app directory
+        ansible.builtin.file:
+          state: directory
+          path: /app
+
+      - name: create a roboshop user
+        ansible.builtin.user:
+          name: roboshop
+          system: true
+          home: /app
+          shell: /sbin/nologin
+          comment: "Roboshop user"
+          create_home: true
+
+      - name: "Download {{ component }} service code"
+        ansible.builtin.get_url:
+          url: "https://roboshop-artifacts.s3.amazonaws.com/{{component}}-v3.zip"
+          dest: "/tmp/{{ component }}.zip"
+
+      - name: "extract the {{ component }}service code"
+        ansible.builtin.unarchive:
+          src: "/tmp/{{ component }}.zip"
+          dest: /app
+          remote_src: yes # yes means files already exist in catalogue server
+
