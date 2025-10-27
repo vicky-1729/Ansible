@@ -6,6 +6,7 @@ A comprehensive collection of Ansible playbooks, roles, and automation examples 
 
 This repository is organized into the following sections:
 
+
 ### [Ansible Practice](./ansible-practice/)
 
 A collection of Ansible playbooks and examples for learning and practicing Ansible concepts:
