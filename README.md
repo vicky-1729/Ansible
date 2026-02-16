@@ -1,5 +1,3 @@
-
-
 # 🔄 Ansible Automation Projects
 
 A comprehensive collection of Ansible playbooks, roles, and automation examples for infrastructure management and application deployment.
